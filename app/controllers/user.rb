@@ -22,6 +22,16 @@ get '/users/:id/show' do
   erb :'/users/show'
 end
 
+put '/users/:id' do
+
+end
+
+get '/users/:id/edit' do
+  @user = User.find(params[:id])
+  erb :'/users/new'
+
+end
+
 post '/users' do
   @user = User.new(username: params[:username], email: params[:email], password: params[:password], first_name: params[:first_name], last_name: params[:last_name], phone: params[:phone] )
   if @user.save
