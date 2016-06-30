@@ -20,8 +20,9 @@ users = []
     phone: Faker::Number.number(10))
 }
 
+#future_playdates
 20.times {
-   users.sample.playdates.create(
+   users.sample.hostings.create(
     time: Faker::Time.forward(23, :morning).to_s.match(/\d{2}:\d{2}:\d{2}/).to_s,
     date:Faker::Time.forward(23),
     duration:Faker::Number.between(1, 4),
@@ -36,8 +37,9 @@ users = []
     playdate_id: Faker::Number.between(1, 40))
 }
 
+#past_playdates
 20.times {
-   users.sample.playdates.create(
+   users.sample.hostings.create(
     time: Faker::Time.forward(23, :morning).to_s.match(/\d{2}:\d{2}:\d{2}/).to_s,
     date:Faker::Time.backward(23),
     duration:Faker::Number.between(1, 4),

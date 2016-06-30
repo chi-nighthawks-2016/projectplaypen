@@ -40,11 +40,10 @@ post '/users' do
   @user = User.new(username: params[:username], email: params[:email], password: params[:password], first_name: params[:first_name], last_name: params[:last_name], phone: params[:phone] )
   if @user.save
     session[:user_id] = @user.id
-    @message = "You have been successfuly registered!"
-    erb :"/users/#{@user.id}/playdates"
+    redirect "/users/#{@user.id}"
   else
     @errors = @user.errors
-    erb :'users/user_new'
+    erb :'users/new'
   end
 end
 
