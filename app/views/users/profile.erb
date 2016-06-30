@@ -1,5 +1,7 @@
 <h2><%= user.username %>'s Profile</h2>
 
+<a href="/users/<%= user.id %>/children"><button class="button">View Children</button></a>
+
 <h4>Future Playdates (next five)</h4>
 <div id="future-rsvps">
   <% user.future_playdates.each do |playdate| %>
