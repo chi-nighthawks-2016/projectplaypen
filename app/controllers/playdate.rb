@@ -1,9 +1,9 @@
-get '/hostings/new' do
+get '/playdates/new' do
  log_in unless current_user
  erb :'/playdates/new'
 end
 
-post '/hostings' do
+post '/playdates' do
   new_playdate = current_user.hostings.new(params[:entry])
   if new_playdate.save
     redirect "/playdates"
