@@ -1,0 +1,35 @@
+<div class='container'>
+  <h2>Create A User Profile</h2>
+  <span class='errors'>
+      <% if @user && @user.errors %>
+        <% @user.errors.full_messages.each do |error| %>
+        <ul><li><%= error %></li></ul>
+        <% end %>
+      <% end %>
+  </span>
+  <% if current_user == @user %>
+  <form action='/users' method='post'>
+    <input name="_method" type="hidden" value="put" />
+    <p>Username: <input type='text' name='username' value="<%= @user.username %>"><p>
+    <p>First Name: <input type='text' name='first_name' value="<%= @user.first_name %>" ></p>
+    <p>Last Name: <input type='text' name='last_name' value="<%= @user.last_name %>"><p>
+    <p>Phone: <input type='text' name='phone' value="<%= @user.phone %>"><p>
+    <p>Email: <input type='email' name='email' value="<%= @user.email %>"><p>
+    <p>Password: <input type='password' name='password' value="<%= @user.password %>"><p>
+    <p><input class='button' type='submit' value='Update Info'></p>
+  </form>
+  <% elsif current_user && current_user != @user %>
+    <form action='/users' method='post'>
+    <p>First Name: <input type='text' name='first_name' ></p>
+    <p>Last Name: <input type='text' name='last_name'><p>
+    <p>Username: <input type='text' name='username'><p>
+    <p>Email: <input type='email' name='email'><p>
+    <p>Password: <input type='password' name='password'><p>
+    <p>Phone: <input type='text' name='phone'><p>
+    <p><input class='button' type='submit' value='Register'></p>
+  </form>
+  <% else %>
+    Restricted Access
+  <% end %>
+    <a class='button' href="/playdates">Home</a>
+</div>
