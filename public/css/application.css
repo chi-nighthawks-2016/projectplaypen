@@ -1,0 +1,53 @@
+body {
+  top: 100px;
+  position: relative;
+  background-color: #FFDBE6;
+}
+
+header {
+  background-color: #FE86A4;
+  height: 100px;
+  width: 100%;
+  display: block;
+  top: 0px;
+  position: fixed;
+}
+
+.button {
+
+  background-color: #FFDDCE;
+  border-radius: 7px;
+  margin: 25px 15px;
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+.left-button {
+  background-color: #FFDDCE;
+  border-radius: 7px;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+.navbar {
+  position: relative;
+  right: 0px;
+  text-align: center;
+  /*border: solid 1px black;*/
+}
+
+.container {
+  width: 600px;
+  height: content;
+  border: solid 3px #FE86A4;
+  margin: auto;
+  top: 100px;
+  position: relative;
+}
+
+
