@@ -39,3 +39,12 @@ users = []
   allergies: (1..rand(6)+1).collect { Faker::Team.creature })
 }
 
+<<<<<<< HEAD
+=======
+10.times {
+  user = users.sample
+  user.rsvps.build(
+    child_id: user.children.sample
+    playdate_id: Faker::Number.between(1, 10))
+}
+>>>>>>> master
