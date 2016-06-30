@@ -22,18 +22,20 @@ users = []
 }
 
 10.times {
-   users.sample.playdates.build(
+   users.sample.playdates.create(
     time: Faker::Time.forward(23, :morning).to_s.match(/\d{2}:\d{2}:\d{2}/).to_s,
     date:Faker::Time.forward(23),
     duration:Faker::Number.between(1, 4),
     location:"#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.state_abbr}",
     description: Faker::Hipster.paragraph,
     title: Faker::Hipster.sentence)
+ }
 
 12.times {
-  users.sample.children.build(
+  users.sample.children.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   birthday: Faker::Date.between(4.year.ago, Date.today),
   allergies: (1..rand(6)+1).collect { Faker::Team.creature })
 }
+
