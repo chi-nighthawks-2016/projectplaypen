@@ -2,7 +2,7 @@
   <div id="error"><%= @error %></div>
 <% end %>
 
-<div id="new_child_form">
+<div id="child_form">
   <form action="/users/<%= @user.id %>/children" method="POST">
     First Name: <input type="text" name="entry[first_name]"><br />
     Last Name: <input type="text" name="entry[last_name]" value="<%= @user.last_name %>"><br />
