@@ -1,15 +1,25 @@
 <h2><%= user.username %>'s Profile</h2>
 
-<h4>Future Playdates (next four)</h4>
-<div class="future-rsvps">
+<h4>Future Playdates (next five)</h4>
+<div id="future-rsvps">
   <% user.future_playdates.each do |playdate| %>
-    <p><a href="/playdates/<%= playdate.id %>" class="playdate-title"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
+  <div class="playdate-listing">
+    <p class="playdate-title"><a href="/playdates/<%= playdate.id %>" class="playdate-title"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
+    <div class="playdate-details">
+      <%= erb :'playdates/_playdate_details', locals: {playdate: playdate}%>
+    </div>
+  </div>
   <% end %>
 </div>
 
-<h4>Past Playdates (most recent four)</h4>
-<div class="past-rsvps">
+<h4>Past Playdates (most recent five)</h4>
+<div id="past-rsvps">
   <% user.past_playdates.each do |playdate| %>
-    <p><a href="/playdates/<%= playdate.id %>"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
+  <div class="playdate-listing">
+    <p class="playdate-title"><a href="/playdates/<%= playdate.id %>" class="playdate-title"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
+    <div class="playdate-details">
+      <%= erb :'playdates/_playdate_details', locals: {playdate: playdate}%>
+    </div>
+  </div>
   <% end %>
 </div>

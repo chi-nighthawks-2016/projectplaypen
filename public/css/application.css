@@ -50,4 +50,10 @@ header {
   position: relative;
 }
 
+.playdate-listing {
+  border-bottom: 1px dashed white;
+}
 
+.playdate-details{
+  display: none;
+}
