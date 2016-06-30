@@ -42,12 +42,15 @@ header {
 }
 
 .container {
-  width: 600px;
+  width: 500px;
   height: content;
-  border: solid 3px #FE86A4;
+  border: solid 8px #FE86A4;
+  border-radius: 60px;
   margin: auto;
   top: 100px;
   position: relative;
+  padding: 20px;
+  text-align: center;
 }
 
 
