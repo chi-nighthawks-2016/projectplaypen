@@ -1,1 +1,14 @@
-"This is an edit form"
+<% if @error %>
+  <div id="error"><%= @error %></div>
+<% end %>
+
+<div id="edit_child_form">
+  <form action="/user/<%= @child.parent.id %>/children/<%= @child.id %>" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    First Name: <input type="text" name="entry[first_name]" value="<%= @child.first_name %>"><br />
+    Last Name: <input type="text" name="entry[last_name]" value="<%= @child.last_name %>"><br />
+    Birthday: <input type="text" name="entry[birthday]" placeholder="yyyy-mm-dd" value="<%= format(@child.birthday) %>"><br />
+    Allergies: <input type='text' name="entry[allergies]" placeholder="peanuts, almonds, cats, etc." value="<%= @child.allergies %>"><br />
+    <input type="submit" value="Edit">
+  </form>
+</div>

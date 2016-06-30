@@ -7,6 +7,12 @@ class Child < ActiveRecord::Base
   validates :birthday, presence: true
 
   def age
-    ((Time.now - birthday)/(24 * 60 * 60 * 7 * 52)).floor
+    difference = Time.now - birthday
+    year = (difference/(24 * 60 * 60 * 7 * 52)).floor
+    if year < 1
+      "#{(difference/(24 * 60 * 60 * 7 * 52)*12).floor} months"
+    else
+      year
+    end
   end
 end

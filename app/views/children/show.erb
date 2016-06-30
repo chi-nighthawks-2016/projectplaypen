@@ -1,10 +1,20 @@
 <% @children.each do |child| %>
   <div id="children_container">
-    <h4>child.first_name</h4>
+    <h4><%= child.first_name %></h4>
+    <% #if user_authorization(child.parent)  %>
+      <div class="alter_links">
+        <a href="/user/<%= child.parent.id %>/children/<%= child.id %>/edit">Edit</a>
+          <form id="delete" action="/user/<%= child.parent.id %>/children/<%= child.id %>" method="POST">
+            <input name="_method" type="hidden" value="DELETE" />
+            <input class="link_styled" type="submit" value="Delete">
+          </form>
+      </div>
+    <% #end %>
     <p>
       <ul>
-        <li><b>Birthday:</b> <%= child.birthday %></li>
-        <li><b>Allergies:</b> <%= child.allergies.join(", ") %>
+        <li><b>Age:</b> <%= child.age %>
+        <li><b>Birthday:</b> <%= format(child.birthday) %></li>
+        <li><b>Allergies:</b> <%= child.allergies %>
       </ul>
     </p>
   </div>

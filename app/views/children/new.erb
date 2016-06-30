@@ -1,1 +1,13 @@
-"this is a new form"
+<% if @error %>
+  <div id="error"><%= @error %></div>
+<% end %>
+
+<div id="new_child_form">
+  <form action="/user/<%= @user.id %>/children" method="POST">
+    First Name: <input type="text" name="entry[first_name]"><br />
+    Last Name: <input type="text" name="entry[last_name]" value="<%= @user.last_name %>"><br />
+    Birthday: <input type="text" name="entry[birthday]" placeholder="yyyy-mm-dd"><br />
+    Allergies: <input type='text' name="entry[allergies]" placeholder="peanuts, almonds, cats, etc."><br />
+    <input type="submit" value="submit">
+  </form>
+</div>

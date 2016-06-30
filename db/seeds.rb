@@ -28,6 +28,7 @@ users = []
     location:"#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.state_abbr}",
     description: Faker::Hipster.paragraph,
     title: Faker::Hipster.sentence)
+}
 
 
 20.times {
@@ -35,7 +36,7 @@ users = []
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   birthday: Faker::Date.between(4.year.ago, Date.today),
-  allergies: (1..rand(6)+1).collect { Faker::Team.creature })
+  allergies: (1..rand(6)+1).collect { Faker::Team.creature }.join(", "))
 }
 
 10.times {
