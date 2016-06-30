@@ -1,8 +1,15 @@
 <h2><%= user.username %>'s Profile</h2>
 
-<h4>All Rsvps</h4>
+<h4>Future Playdates (next four)</h4>
+<div class="future-rsvps">
+  <% user.future_playdates.each do |playdate| %>
+    <p><a href="/playdates/<%= playdate.id %>" class="playdate-title"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
+  <% end %>
+</div>
+
+<h4>Past Playdates (most recent four)</h4>
 <div class="past-rsvps">
-  <% user.rsvps.each do |rsvp| %>
-    <p><%= rsvp.playdate.title %>, <%= rsvp.playdate.date %>, <%= rsvp.playdate.location %></p><br>
+  <% user.past_playdates.each do |playdate| %>
+    <p><a href="/playdates/<%= playdate.id %>"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
   <% end %>
 </div>

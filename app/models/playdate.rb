@@ -1,6 +1,7 @@
 class Playdate < ActiveRecord::Base
   belongs_to :host, class_name: :User
   has_many :rsvps
+  has_many :children, through: :rsvps
 
   def attendees
     attendees = []
@@ -9,5 +10,5 @@ class Playdate < ActiveRecord::Base
     end
     attendees
   end
-  
+
 end
