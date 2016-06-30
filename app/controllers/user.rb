@@ -15,3 +15,8 @@ end
 get '/register' do
   erb :'/user/user_new'
 end
+
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :'user/profile', locals: {user: @user}
+end

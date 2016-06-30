@@ -1,0 +1,8 @@
+<h2><%= user.username %>'s Profile</h2>
+
+<h4>All Rsvps</h4>
+<div class="past-rsvps">
+  <% user.rsvps.each do |rsvp| %>
+    <p><%= rsvp.playdate.title %>, <%= rsvp.playdate.date %>, <%= rsvp.playdate.location %></p><br>
+  <% end %>
+</div>
