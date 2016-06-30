@@ -4,14 +4,12 @@ class User < ActiveRecord::Base
   has_many :playdates, through: :rsvps, source: :playdate
   has_many :hostings, class_name: "Playdate", foreign_key: :host_id
 
-  validates :username, presence: { message: "cannot be empty" },
-                      uniqueness: true
-  validates :email, presence:  { message: "must be valid address" },
-                      uniqueness: true
-  validates :pw_hash, presence: { message: "cannot be empty" }
-  validates :first_name, presence: { message: "cannot be empty" }
-  validates :last_name, presence: { message: "cannot be empty" }
-  validates :phone, presence: { message: "number is required" }
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :pw_hash, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :phone, presence: true
 
   def password
     @password ||= BCrypt::Password.new(pw_hash)

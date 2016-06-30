@@ -7,18 +7,20 @@
         <% end %>
       <% end %>
   </span>
-  <% if current_user == @user %>
-  <form action='/users' method='post'>
-    <input name="_method" type="hidden" value="put" />
-    <p>Username: <input type='text' name='username' value="<%= @user.username %>"><p>
-    <p>First Name: <input type='text' name='first_name' value="<%= @user.first_name %>" ></p>
-    <p>Last Name: <input type='text' name='last_name' value="<%= @user.last_name %>"><p>
-    <p>Phone: <input type='text' name='phone' value="<%= @user.phone %>"><p>
-    <p>Email: <input type='email' name='email' value="<%= @user.email %>"><p>
-    <p>Password: <input type='password' name='password' value="<%= @user.password %>"><p>
-    <p><input class='button' type='submit' value='Update Info'></p>
-  </form>
-  <% elsif current_user && current_user != @user %>
+  <% if logged_in? %>
+    <% if @user.id == current_user.id %>
+    <form action='/users' method='post'>
+      <input name="_method" type="hidden" value="put" />
+      <p>Username: <input type='text' name='username' value="<%= @user.username %>"><p>
+      <p>First Name: <input type='text' name='first_name' value="<%= @user.first_name %>" ></p>
+      <p>Last Name: <input type='text' name='last_name' value="<%= @user.last_name %>"><p>
+      <p>Phone: <input type='text' name='phone' value="<%= @user.phone %>"><p>
+      <p>Email: <input type='email' name='email' value="<%= @user.email %>"><p>
+      <p>Password: <input type='password' name='password' value="<%= @user.password %>"><p>
+      <p><input class='button' type='submit' value='Update Info'></p>
+    </form>
+    <% end %>
+  <% elsif !logged_in? %>
     <form action='/users' method='post'>
     <p>First Name: <input type='text' name='first_name' ></p>
     <p>Last Name: <input type='text' name='last_name'><p>
