@@ -21,6 +21,9 @@ header {
   padding: 10px;
   text-decoration: none;
   display: inline-block;
+  color: black;
+  /*background: none;*/
+  border: none;
 
 }
 
@@ -51,6 +54,14 @@ header {
   position: relative;
   padding: 20px;
   text-align: center;
+  bottom: 20px;
+}
+
+.errors {
+  font-size: 1em;
+  color: red;
+  text-align: center;
+  margin-left
 }
 
 

@@ -1,29 +1,41 @@
 get '/login' do
-  erb :'/user/login'
+  erb :'users/login'
 end
 
 post '/login' do
   @user = User.find_by(username: params[:username])
-  if @user && @user.authenticate
-    erb :"/user/#{@user.id}/playdates"
+  if @user && @user.authenticate(params[:password])
+    session[:user_id] = @user.id
+    redirect ("/users/#{@user.id}/show")
   else
-    @errors = @user.errors
-    erb :login
+    @errors = "Invalid Username or Password"
+    erb :'users/login'
   end
 end
 
 get '/register' do
-  erb :'/user/user_new'
+  erb :'/users/user_new'
 end
 
-post '/user' do
+get '/users/:id/show' do
+  @user = User.find(params[:id])
+  erb :'/users/show'
+end
+
+post '/users' do
   @user = User.new(username: params[:username], email: params[:email], password: params[:password], first_name: params[:first_name], last_name: params[:last_name], phone: params[:phone] )
-  p @user
   if @user.save
+    session[:user_id] = @user.id
     @message = "You have been successfuly registered!"
-    erb :"/user/#{@user.id}/playdates"
+    erb :"/users/#{@user.id}/playdates"
   else
     @errors = @user.errors
-    erb :'user/user_new'
+    erb :'users/user_new'
   end
+end
+
+delete '/logout' do
+  session.destroy
+  @message = "You have been successfully logged out"
+  erb :'/users/login'
 end
