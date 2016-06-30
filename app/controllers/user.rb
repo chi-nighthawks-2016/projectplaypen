@@ -17,10 +17,11 @@ get '/register' do
   erb :'/users/user_new'
 end
 
-get '/users/:id/show' do
+get '/users/:id' do
   @user = User.find(params[:id])
-  erb :'/users/show'
+  erb :'users/profile', locals: {user: @user}
 end
+
 
 put '/users/:id' do
 

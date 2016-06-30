@@ -1,0 +1,9 @@
+<!-- <div class="playdate-id"> -->
+  <p><%= playdate.description %> hosted by <%= playdate.host.first_name %> | <%= playdate.duration %> hours</p>
+  <p>Attendees:</p>
+  <ul>
+  <% playdate.children.each do |child| %>
+    <li><%= child.parent.first_name %> is bringing <%= child.first_name %></li>
+  <% end %>
+  </ul>
+<!-- </div> -->
