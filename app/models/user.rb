@@ -1,9 +1,7 @@
-require 'bcrypt'
-
 class User < ActiveRecord::Base
-  has_many :children
+  has_many :children, foreign_key: :parent_id
   has_many :rsvps, through: :children
-  has_many :playdates, foregin_key: :host_id
+  has_many :playdates, foreign_key: :host_id
   has_many :hostings, class_name: :Playdate, foreign_key: :host_id
 
 
