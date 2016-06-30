@@ -1,0 +1,22 @@
+<% if @error %>
+  <div id="error"><%= @error %></div>
+<% end %>
+
+<div class="container">
+  <form action="/hostings" method="POST">
+    Event: <input type="text" name="entry[title]"><br />
+    Date: <input type="date" name="entry[date]" placeholder="yyyy-mm-dd"><br />
+    Start Time: <input type="text" name="entry[time]" placeholder="00:00 to 23:59"><br />
+    Duration:
+    <input type="radio" name="entry[duration]" value="1"> 1
+    <input type="radio" name="entry[duration]" value="1.5">1.5
+    <input type="radio" name="entry[duration]" value="2"> 2<br />
+    <input type="radio" name="entry[duration]" value="2.5"> 2.5
+    <input type="radio" name="entry[duration]" value="3"> 3
+    <input type="radio" name="entry[duration]" value="3.5"> 3.5
+    <input type="radio" name="entry[duration]" value="4"> 4 <br />
+    Location: <input type='text' name="entry[location]"><br />
+    Description: <textarea name="entry[description]"></textarea>
+    <input type="submit" value="submit">
+  </form>
+</div>

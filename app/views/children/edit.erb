@@ -2,7 +2,7 @@
   <div id="error"><%= @error %></div>
 <% end %>
 
-<div id="edit_child_form">
+<div id="child_form">
   <form action="/users/<%= @child.parent.id %>/children/<%= @child.id %>" method="POST">
     <input type="hidden" name="_method" value="PUT">
     First Name: <input type="text" name="entry[first_name]" value="<%= @child.first_name %>"><br />
