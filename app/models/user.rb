@@ -7,9 +7,12 @@ class User < ActiveRecord::Base
 
   validates :username, presence: { message: "cannot be empty" },
                       uniqueness: true
-  validates :email, presence:  { message: "cannot be empty" },
+  validates :email, presence:  { message: "must be valid address" },
                       uniqueness: true
   validates :pw_hash, presence: { message: "cannot be empty" }
+  validates :first_name, presence: { message: "cannot be empty" }
+  validates :last_name, presence: { message: "cannot be empty" }
+  validates :phone, presence: { message: "number is required" }
 
   def password
     @password ||= BCrypt::Password.new(pw_hash)
@@ -22,7 +25,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def authenticate(typed_password)
-    self.password == typed_password
+  def authenticate(pw_hash)
+    self.password == pw_hash
   end
 end
