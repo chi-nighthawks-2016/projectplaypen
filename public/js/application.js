@@ -7,5 +7,4 @@ $(document).ready(function() {
     var thisPlaydateDetails = $thisPlaydate.siblings(".playdate-details")
     $(thisPlaydateDetails).slideToggle("slow");
   })
-
 });

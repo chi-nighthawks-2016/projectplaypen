@@ -7,8 +7,8 @@
         <% end %>
       <% end %>
   </span>
-  <% if current_user == @user %>
-  <form action='/users' method='post'>
+  <% if logged_in? && current_user == @user %>
+    <form action='/users/<%= current_user.id %>' method='post'>
     <input name="_method" type="hidden" value="put" />
     <p>Username: <input type='text' name='username' value="<%= @user.username %>"><p>
     <p>First Name: <input type='text' name='first_name' value="<%= @user.first_name %>" ></p>
@@ -17,8 +17,9 @@
     <p>Email: <input type='email' name='email' value="<%= @user.email %>"><p>
     <p>Password: <input type='password' name='password' value="<%= @user.password %>"><p>
     <p><input class='button' type='submit' value='Update Info'></p>
+    <a class='button' href="/users/<%= current_user.id %>">Back</a>
   </form>
-  <% elsif current_user && current_user != @user %>
+  <% elsif !logged_in? %>
     <form action='/users' method='post'>
     <p>First Name: <input type='text' name='first_name' ></p>
     <p>Last Name: <input type='text' name='last_name'><p>
@@ -29,7 +30,7 @@
     <p><input class='button' type='submit' value='Register'></p>
   </form>
   <% else %>
-    Restricted Access
+    <p>Restricted Access</p>
+    <a class='button' href="/login">Login</a>
   <% end %>
-    <a class='button' href="/playdates">Home</a>
 </div>
