@@ -1,4 +1,5 @@
 get '/user/:id/children' do
+  log_in unless current_user
   @children = Child.where(parent_id: params[:id])
   erb :'/children/show'
 end
@@ -23,13 +24,13 @@ end
 
 get '/user/:id/children/:child_id/edit' do
   @child = Child.find(params[:child_id])
-  # restricted_access unless user_authorization(@child.parent)
+  restricted_access unless user_authorization(@child.parent)
   erb :'/children/edit'
 end
 
 put '/user/:id/children/:child_id' do
   @child = Child.find(params[:child_id])
-  # restricted_access unless user_authorization(@child.parent)
+  restricted_access unless user_authorization(@child.parent)
   @child.assign_attributes(params[:entry])
   if @child.save
     redirect "/user/#{@child.parent.id}/children"
@@ -41,5 +42,9 @@ end
 
 delete '/user/:id/children/:child_id' do
   @child = Child.find(params[:child_id])
-  # restricted_access unless user_authorization(@child.parent)
+  restricted_access unless user_authorization(@child.parent)
+  if @child
+    @child.destroy
+  end
+  redirect "/user/#{@child.parent.id}/children"
 end

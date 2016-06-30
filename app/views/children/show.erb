@@ -1,7 +1,7 @@
 <% @children.each do |child| %>
   <div id="children_container">
     <h4><%= child.first_name %></h4>
-    <% #if user_authorization(child.parent)  %>
+    <% if user_authorization(child.parent)  %>
       <div class="alter_links">
         <a href="/user/<%= child.parent.id %>/children/<%= child.id %>/edit">Edit</a>
           <form id="delete" action="/user/<%= child.parent.id %>/children/<%= child.id %>" method="POST">
@@ -9,7 +9,7 @@
             <input class="link_styled" type="submit" value="Delete">
           </form>
       </div>
-    <% #end %>
+    <% end %>
     <p>
       <ul>
         <li><b>Age:</b> <%= child.age %>
