@@ -1,3 +1,5 @@
 class Rsvp < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :child
+  has_one :attendee, through: :child, source: :parent
+  belongs_to :playdate 
 end

@@ -1,20 +1,19 @@
+users = []
 
 1.times {
-   User.create!(
+   users << User.create!(
     username: "amanda",
-    pw_hash: "password",
+    password: "password",
     email: "adnama.lin@gmail.com",
     first_name: "amanda",
     last_name: "lin",
     phone: "3309620922")
 }
 
-users = []
-
 10.times {
    users << User.create!(
     username: Faker::Internet.user_name,
-    pw_hash: Faker::Internet.password(8),
+    password: Faker::Internet.password(8),
     email: Faker::Internet.free_email,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -29,13 +28,19 @@ users = []
     location:"#{Faker::Address.street_address}, #{Faker::Address.city}, #{Faker::Address.state_abbr}",
     description: Faker::Hipster.paragraph,
     title: Faker::Hipster.sentence)
- }
 
-12.times {
+
+20.times {
   users.sample.children.create(
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
   birthday: Faker::Date.between(4.year.ago, Date.today),
   allergies: (1..rand(6)+1).collect { Faker::Team.creature })
+}
+
+10.times {
+  Rsvp.create(
+    child_id: Faker::Number.between(1, 12),
+    playdate_id: Faker::Number.between(1, 10))
 }
 
