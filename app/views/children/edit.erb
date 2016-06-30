@@ -3,7 +3,7 @@
 <% end %>
 
 <div id="edit_child_form">
-  <form action="/user/<%= @child.parent.id %>/children/<%= @child.id %>" method="POST">
+  <form action="/users/<%= @child.parent.id %>/children/<%= @child.id %>" method="POST">
     <input type="hidden" name="_method" value="PUT">
     First Name: <input type="text" name="entry[first_name]" value="<%= @child.first_name %>"><br />
     Last Name: <input type="text" name="entry[last_name]" value="<%= @child.last_name %>"><br />
