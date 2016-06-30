@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_many :children, foreign_key: :parent_id
   has_many :rsvps, through: :children
   has_many :playdates, through: :rsvps, source: :playdate
-  has_many :hostings, class_name: :Playdate, foreign_key: :host_id
+  has_many :hostings, class_name: "Playdate", foreign_key: :host_id
 
   validates :username, presence: { message: "cannot be empty" },
                       uniqueness: true
