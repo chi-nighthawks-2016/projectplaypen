@@ -1,3 +1,5 @@
+<a href="/users/<%= current_user.id %>/children/new"><button class="button">Add Child</button></a>
+
 <% @children.each do |child| %>
   <div id="children_container">
     <h4><%= child.first_name %></h4>

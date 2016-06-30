@@ -4,6 +4,10 @@
   <% end %>
 <h2><%= user.first_name %> <%= user.last_name %>'s Profile</h2>
 
+<div id='calendar'></div>
+
+<a href="/users/<%= user.id %>/children"><button class="button">View Children</button></a>
+
 <h4>Future Playdates (next five)</h4>
 <div id="future-rsvps">
   <% user.future_playdates.each do |playdate| %>
