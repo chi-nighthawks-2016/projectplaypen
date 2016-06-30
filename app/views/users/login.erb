@@ -1,0 +1,13 @@
+<div class='container'>
+  <h2>Login</h2>
+  <p class='errors'>
+  <% if @errors %>
+  <%= @errors %>
+  <% end %></p>
+<form id='login-form' action='/login' method='post'>
+  <p>Username: <input type='text' name='username' placeholder="Enter Username Here"></p>
+  <p>Password: <input type='password' name='password' placeholder="Enter Password Here"></p>
+  <input class='button' type='submit' value="Log In">
+  <a class='button' href="/register">Register</a>
+</form>
+</div>

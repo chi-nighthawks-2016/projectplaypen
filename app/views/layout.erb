@@ -21,9 +21,16 @@
 <header>
   <nav class='navbar'>
     <a class='left-button' href="/host/new">Host Playdate</a>
+    <% if current_user %>
+    <a class='button' href='/users/<%= current_user.id %>/show'>Logged in as <%= current_user.username %></a>
+    <form class = 'button' action='/logout' method='post'>
+      <input name="_method" type="hidden" value="delete" />
+      <input type='submit' value='Logout'>
+    </form>
+    <% else %>
     <a class='button' href="/login">Login</a>
-    <a class='button' href="/Register">Register</a>
-    <a class='button' href="/logout">Logout</a>
+    <a class='button' href="/register">Register</a>
+    <% end %>
     <a class='left-button' href="/playdates">All Playdates</a>
   </nav>
 </header>
