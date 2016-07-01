@@ -94,9 +94,10 @@ $(document).ready(function() {
     e.preventDefault();
     var title = $("h5").text();
     var description = $("p.playdate-description").text();
-    var email = $("span.email").text();
+    var email = $("span.email").attr("email");
+    var name = $("span.email").attr("name");
     emailjs.send("admin_projectplaypen_com","template_xFPVTDNY",
-      {to_name: "Vivien", message_html: title + ":<br /> " + description, from_name: "PlayPen", to_email: email});
+      {to_name: name, message_html: title + ":<br /> " + description, from_name: "PlayPen", to_email: email});
   });
 
 // email sending service
