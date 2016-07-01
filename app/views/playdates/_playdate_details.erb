@@ -5,20 +5,21 @@
   <p>Attendees:</p>
   <ul>
   <% playdate.children.each do |child| %>
-    <li><%= child.parent.first_name %> is bringing <%= child.first_name %></li>
+    <li class='attending_list'><%= child.parent.first_name %> is bringing <%= child.first_name %></li>
   <% end %>
   </ul>
-  <form action="/playdates/<%= playdate.id %>/rsvp" method="post" class="rsvp_form">
+  <form id='attending_form' action="/playdates/<%= playdate.id %>/rsvp" method="post" class="rsvp_form">
   	Who is attending?
   	<% current_user.children.each do |child| %>
   	<p><input type="radio" name="child_id" value="<%= child.id %>" checked> <%= child.first_name %></p>
   	<% end %>
   	<input class="button" type="submit" value="Attend this Playdate">
   </form>
-  <form action="/playdates/<%= playdate.id %>/rsvp" method="post">
+  <form id='canceling_form' action="/playdates/<%= playdate.id %>/rsvp" method="post">
+  Who can't attend?
     <input name="_method" type="hidden" value="delete" />
 	  	<% current_user.children.each do |child| %>
-  	<input type="radio" name="child_id" value="<%= child.id %>" checked> <%= child.first_name %>
+  	<p><input type="radio" name="child_id" value="<%= child.id %>" checked> <%= child.first_name %></p>
   	<% end %>
   	<input class="button" type="submit" value="Sorry can't come">
   </form>
