@@ -28,6 +28,7 @@ $(document).ready(function() {
         })
      }
     })
+
   });
 
   // var currentProfile = $("span.profile").attr("profile");
@@ -57,3 +58,9 @@ $(document).ready(function() {
     })
 
   });
+
+   $("span#attendee-title").on("click", function(e){
+    e.preventDefault();
+    $("span#attendee-detail").slideToggle("slow");
+  });
+});
