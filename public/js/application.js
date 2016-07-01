@@ -59,9 +59,8 @@ $(document).ready(function() {
     $(thisPlaydateDetails).slideToggle("slow");
   })
 
-  $("span#attendee-title").on("click", function(e){
-    e.preventDefault();
-    $("span#attendee-detail").slideToggle("slow");
+  $("span.attendee").on("click", function(){
+    $(this).siblings("span.attendee-details").toggle();
   });
 
   /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
