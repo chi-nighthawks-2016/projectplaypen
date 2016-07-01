@@ -24,6 +24,9 @@ header {
   font-family: 'Chewy', cursive;
   font-size: 4em;
   color: #64CF31;
+  background-color: #FC544E;
+  border-radius: 50%;
+  width: 300px;
   -webkit-text-stroke: 2px white;
 }
 

@@ -7,7 +7,7 @@
   	<input type="hidden" name="_method" value="PUT">
     Event: <input type="text" name="entry[title]" value="<%= playdate.title %>"><br />
     Date: <input type="date" name="entry[date]"  value="<%= playdate.date %>" placeholder="yyyy-mm-dd"><br />
-    Start Time: <input type="text" name="entry[time]" value="<%= format(playdate.time) %>" placeholder="00:00 to 23:59"><br />
+    Start Time: <input type="text" name="entry[time]" value="<%= format(playdate.time) %>"   placeholder="00:00 to 23:59"><br />
     Duration: <select name="entry[duration]" class="select-field">
     <option value="1.5">1.5 Hours</option>
     <option value="2">2 Hours</option>
@@ -15,13 +15,7 @@
     <option value="3">3 Hours</option>
     <option value="4">4 Hours</option>
     </select>
-    </div><br>
-  <!--   Duration:
-    <input type="radio" name="entry[duration]" value="1.5">1.5 Hours
-    <input type="radio" name="entry[duration]" value="2"> 2 Hours<br/>
-    <input type="radio" name="entry[duration]" value="2.5"> 2.5 Hours
-    <input type="radio" name="entry[duration]" value="3"> 3 Hours
-    <input type="radio" name="entry[duration]" value="4"> 4 <br /> -->
+    <br />
 
     Location: <input type='text' name="entry[location]" value="<%= playdate.location %>"><br />
     Description: <textarea name="entry[description]"><%= playdate.description %></textarea>
