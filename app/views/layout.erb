@@ -34,7 +34,7 @@
     <a class='left-button' href="/playdates/new">Host Playdate</a>
     <% if current_user %>
     <a class='button' href='/users/<%= current_user.id %>'>Profile</a>
-    <form class='button' action='/logout' method='post'>
+    <form class='logout-button' action='/logout' method='post'>
       <input name="_method" type="hidden" value="delete" />
       <input type='submit' value='Logout'>
     </form>
