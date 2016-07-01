@@ -59,12 +59,6 @@ $(document).ready(function() {
     $(thisPlaydateDetails).slideToggle("slow");
   })
 
-// <<<<<<< HEAD
-
-//   $("span#attendee-title").on("click", function(e){
-//     e.preventDefault();
-//     $("span#attendee-detail").slideToggle("slow");
-// =======
   $("span.attendee").on("click", function(){
     $(this).siblings("span.attendee-details").toggle();
   });
@@ -86,5 +80,14 @@ $(document).ready(function() {
       document.getElementById("main").style.marginLeft = "0";
   }
 
+
+  $("main.container").on("submit","form", function(e) {
+    e.preventDefault();
+    var $form = $(this);
+    console.log($(this).attr('action'));
+    $.post($form.attr('action'), $form.serialize(), function(response) {
+      $("div.playdate-id").html(response);
+    });
+  });
 
 });
