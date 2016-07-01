@@ -200,3 +200,20 @@ li {
 span.email {
   display:none;
 }
+
+#attending_form {
+  width: : 300px;
+  text-align: center;
+  float: left;
+}
+
+#canceling_form {
+  width: : 300px;
+  text-align: center;
+  float: right;
+}
+
+.attending_list {
+  color: #339933;
+  font-size: 1.5em;
+}
