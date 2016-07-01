@@ -60,6 +60,7 @@ $(document).ready(function() {
   })
 
   $("span.attendee").on("click", function(){
+    console.log("HI");
     $(this).siblings("span.attendee-details").toggle();
   });
 

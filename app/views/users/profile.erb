@@ -16,10 +16,10 @@
   <% user.hostings.each do |hosting| %>
   <div class="playdate-listing">
     <p class="playdate-title"><a href="/playdates/<%= hosting.id %>/edit" class="playdate-title"><%= hosting.title %></a> | <%= hosting.date %> |  <%= hosting.location %></p>
-    <span class="attendee"><%= hosting.attendees.count %> Attending</span>
     <div class="playdate-details">
       <%= erb :'playdates/_hosting_edit', locals: {playdate: hosting}%>
     </div>
+    <span class="attendee"><%= hosting.attendees.count %> Attending</span>
     <span class="attendee-details">
       <ul>
         <% hosting.attendees.each do |attendee| %>
@@ -30,6 +30,8 @@
   </div>
   <% end %>
 </div>
+
+<br><br>
 
 <h4>Future Playdates (next five)</h4>
 <div id="future-rsvps">
