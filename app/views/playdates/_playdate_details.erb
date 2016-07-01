@@ -1,3 +1,6 @@
+
+<div class="playdate-id">
+  <h5><%= playdate.title %></h5>
   <p><%= playdate.description %> hosted by <%= playdate.host.first_name %> | <%= playdate.duration %> hours</p>
   <p>Attendees:</p>
   <ul>
@@ -6,7 +9,7 @@
   <% end %>
   </ul>
   <form action="/playdates/<%= playdate.id %>/rsvp" method="post">
-  	Who is attending? 
+  	Who is attending?
   	<% current_user.children.each do |child| %>
   	<p><input type="radio" name="child_id" value="<%= child.id %>" checked> <%= child.first_name %></p>
   	<% end %>
@@ -21,3 +24,6 @@
   </form>
     <!-- <input class="button" type="submit" value="<%= current_user.children.map {|child| child.first_name}.join(" and ") %> Cant Come :("> -->
    <form>
+
+</div>
+

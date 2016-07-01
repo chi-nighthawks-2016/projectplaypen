@@ -7,12 +7,15 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <script src="https://use.fontawesome.com/456a9aa01b.js"></script>
   <!--
     application.css is where you put your styles
   -->
   <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.8.0/fullcalendar.min.css">
-  <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.8.0/fullcalendar.print.css">
+  <link rel="stylesheet" media="print" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.8.0/fullcalendar.print.css">
   <link rel="stylesheet" href="/css/application.css">
+  <link href='https://fonts.googleapis.com/css?family=Chewy|Signika' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
@@ -22,24 +25,37 @@
   <title></title>
 </head>
 <body>
-<header>
+<div id="mySidenav" class="sidenav">
+  <% if logged_in? %>
+  <span class= "profile" profile="<%= params[:id] %>"></span>
+  <% end %>
   <nav class='navbar'>
+    <span class="nav-close"><i class="fa fa-times" aria-hidden="true"></i></span>
     <a class='left-button' href="/playdates/new">Host Playdate</a>
     <% if current_user %>
     <a class='button' href='/users/<%= current_user.id %>'>Profile</a>
-    <form class = 'button' action='/logout' method='post'>
+    <form class='logout-button' action='/logout' method='post'>
       <input name="_method" type="hidden" value="delete" />
       <input type='submit' value='Logout'>
     </form>
     <% else %>
+    <span class="nav-close"><i class="fa fa-times" aria-hidden="true"></i></span>
     <a class='button' href="/login">Login</a>
     <a class='button' href="/register">Register</a>
     <% end %>
     <a class='left-button' href="/playdates">All Playdates</a>
   </nav>
-</header>
+</div>
+
+
+<span id="nav-open"><i class="fa fa-bars" aria-hidden="true"></i></span>
+
+
+<div id="main">
+  <header>PlayPen</header>
   <main class="container">
     <%= yield %>
   </main>
+</div>
 </body>
 </html>
