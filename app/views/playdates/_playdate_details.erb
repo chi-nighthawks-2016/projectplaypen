@@ -1,4 +1,3 @@
-<!-- <div class="playdate-id"> -->
   <p><%= playdate.description %> hosted by <%= playdate.host.first_name %> | <%= playdate.duration %> hours</p>
   <p>Attendees:</p>
   <ul>
@@ -6,4 +5,19 @@
     <li><%= child.parent.first_name %> is bringing <%= child.first_name %></li>
   <% end %>
   </ul>
-<!-- </div> -->
+  <form action="/playdates/<%= playdate.id %>/rsvp" method="post">
+  	Who is attending? 
+  	<% current_user.children.each do |child| %>
+  	<p><input type="radio" name="child_id" value="<%= child.id %>" checked> <%= child.first_name %></p>
+  	<% end %>
+  	<input class="button" type="submit" value="Attend this Playdate">
+  </form>
+  <form action="/playdates/<%= playdate.id %>/rsvp" method="post">
+    <input name="_method" type="hidden" value="delete" />
+	  	<% current_user.children.each do |child| %>
+  	<input type="radio" name="child_id" value="<%= child.id %>" checked> <%= child.first_name %>
+  	<% end %>
+  	<input class="button" type="submit" value="Sorry can't come">
+  </form>
+    <!-- <input class="button" type="submit" value="<%= current_user.children.map {|child| child.first_name}.join(" and ") %> Cant Come :("> -->
+   <form>

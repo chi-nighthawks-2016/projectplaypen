@@ -23,7 +23,7 @@ header {
   display: inline-block;
   color: black;
   /*background: none;*/
-  border: none;
+  border: solid 2px black;
 
 }
 
