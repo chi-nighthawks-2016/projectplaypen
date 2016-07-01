@@ -81,10 +81,10 @@ $(document).ready(function() {
   }
 
 
-  $("main.container").on("submit","form", function(e) {
+  $("main.container").on("submit","form.details-form", function(e) {
     e.preventDefault();
     var $form = $(this);
-    console.log($(this).attr('action'));
+    // console.log($(this).attr('action'));
     $.post($form.attr('action'), $form.serialize(), function(response) {
       $("div.playdate-id").html(response);
     });

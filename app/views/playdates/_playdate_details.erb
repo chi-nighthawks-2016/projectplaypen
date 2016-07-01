@@ -9,15 +9,15 @@
   <% end %>
   </ul>
 
-  <form id='attending_form' action="/playdates/<%= playdate.id %>/rsvp" method="post" class="rsvp_form">
+  <form id='attending_form' action="/playdates/<%= playdate.id %>/rsvp" method="post" class="rsvp_form details-form">
   	Who is attending?
   	<% current_user.children.each do |child| %>
   	<p><input type="radio" name="child_id" value="<%= child.id %>" checked> <%= child.first_name %></p>
   	<% end %>
   	<input class="button" type="submit" value="Attend this Playdate">
   </form>
-  
-  <form id='canceling_form' action="/playdates/<%= playdate.id %>/rsvp" method="post">
+
+  <form id='canceling_form' action="/playdates/<%= playdate.id %>/rsvp" method="post" class="details-form">
   Who can't attend?
     <input name="_method" type="hidden" value="delete" />
 	  	<% current_user.children.each do |child| %>
