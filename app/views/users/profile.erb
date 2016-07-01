@@ -1,4 +1,4 @@
-<div class='container'>
+<!-- <div class='container'> -->
   <% if @message %>
   <%= @message %>
   <% end %>
@@ -12,10 +12,10 @@
 <% if @error %>
   <div id="error"><%= @error %></div>
 <% end %>
-<div id="hosting-playdates">
   <% user.hostings.each do |hosting| %>
   <div class="playdate-listing">
-    <p class="playdate-title"><a href="/playdates/<%= hosting.id %>/edit" class="playdate-title"><%= hosting.title %></a> | <%= hosting.date %> |  <%= hosting.location %></p>
+    <p class="playdate-title"><a href="/playdates/<%= hosting.id %>/edit" class="playdate-title"><%= hosting.title %></a> on <%= hosting.date.strftime("%m/%d/%Y") %> at <a href="http://maps.google.com/?q=<%= hosting.location %>">
+ <%= hosting.location %></a></p>
     <div class="playdate-details">
       <%= erb :'playdates/_hosting_edit', locals: {playdate: hosting}%>
     </div>
@@ -31,10 +31,8 @@
   <% end %>
 </div>
 
-<br><br>
-
-<h4>Future Playdates (next five)</h4>
 <div id="future-rsvps">
+<h4>Future Playdates (next five)</h4>
   <% user.future_playdates.each do |playdate| %>
   <div class="playdate-listing">
     <p class="playdate-title"><a href="/playdates/<%= playdate.id %>" class="playdate-title"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
@@ -45,8 +43,8 @@
   <% end %>
 </div>
 
-<h4>Past Playdates (most recent five)</h4>
 <div id="past-rsvps">
+<h4>Past Playdates (most recent five)</h4>
   <% user.past_playdates.each do |playdate| %>
   <div class="playdate-listing">
     <p class="playdate-title"><a href="/playdates/<%= playdate.id %>" class="playdate-title"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
@@ -57,4 +55,4 @@
   <% end %>
 </div>
  <a class='button' href="/users/<%= current_user.id %>/edit">Account Information</a>
-</div>
+<!-- </div> -->
