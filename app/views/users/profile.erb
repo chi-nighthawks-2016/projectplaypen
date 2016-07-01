@@ -1,6 +1,9 @@
 <h2><%= user.username %>'s Profile</h2>
 
 <h4>Hosting Playdates</h4>
+<% if @error %>
+  <div id="error"><%= @error %></div>
+<% end %>
 <div id="hosting-playdates">
   <% user.hostings.each do |hosting| %>
   <div class="playdate-listing">
