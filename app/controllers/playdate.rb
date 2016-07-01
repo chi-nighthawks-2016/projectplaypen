@@ -20,7 +20,8 @@ end
 
 get '/playdates' do
     content_type :json
-    playdates = current_user.this_months_playdates
+    @current_profile = User.find(params[:profile])
+    playdates = @current_profile.this_months_playdates
     events = []
     playdates.each do |playdate|
       events << { :title => playdate.title, :start => playdate.date }

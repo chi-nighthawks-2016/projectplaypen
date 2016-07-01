@@ -4,8 +4,12 @@ $(document).ready(function() {
   var m = date.getMonth();
   var y = date.getFullYear();
 
-  $.getJSON( "/playdates", function(jsonEvents) {
-    var monthsEvents = jsonEvents;
+  var monthsEvents;
+  var currentProfile = $("span.profile").attr("profile");
+  $.getJSON( "/playdates", {profile: currentProfile}, function(jsonEvents) {
+    console.log(jsonEvents);
+    monthsEvents = jsonEvents;
+    console.log(monthsEvents);
     $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',
