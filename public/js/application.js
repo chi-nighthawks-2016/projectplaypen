@@ -59,10 +59,15 @@ $(document).ready(function() {
     $(thisPlaydateDetails).slideToggle("slow");
   })
 
+<<<<<<< HEAD
 
   $("span#attendee-title").on("click", function(e){
     e.preventDefault();
     $("span#attendee-detail").slideToggle("slow");
+=======
+  $("span.attendee").on("click", function(){
+    $(this).siblings("span.attendee-details").toggle();
+>>>>>>> 64ef782ebd212b379cf674ef31d4d7eb7c48d93c
   });
 
   /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
