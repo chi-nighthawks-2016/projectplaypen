@@ -180,7 +180,7 @@ input[type=submit]:hover{
 }
 
 
-input[type=text], textarea, input[type=password], input[type=date] {
+input[type=text], textarea, input[type=password], input[type=date], input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -188,4 +188,8 @@ input[type=text], textarea, input[type=password], input[type=date] {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+span.attendee-details{
+  display: none;
 }
