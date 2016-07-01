@@ -52,8 +52,7 @@ a:hover {
   text-decoration: none;
   display: inline-block;
   /*background: none;*/
-  border: solid 2px black;
-
+  border:0;
 }
 
 a.on-button{
@@ -192,4 +191,8 @@ input[type=text], textarea, input[type=password], input[type=date], input[type=e
 
 span.attendee-details{
   display: none;
+}
+
+li {
+  list-style-type:none;
 }
