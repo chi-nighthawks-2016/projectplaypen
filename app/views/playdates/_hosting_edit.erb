@@ -1,0 +1,28 @@
+<% if @error %>
+  <div id="error"><%= @error %></div>
+<% end %>
+
+<div class="container">
+  <form action="/hostings" method="POST">
+  	<input type="hidden" name="_method" value="PUT">
+    Event: <input type="text" name="entry[title]" value="<%= hosting.title %>"><br />
+    Date: <input type="date" name="entry[date]"  value="<%= hosting.date %>" placeholder="yyyy-mm-dd"><br />
+    Start Time: <input type="text" name="entry[time]" value="<%= format(hosting.time) %>" placeholder="00:00 to 23:59"><br />
+    Duration:
+    <input type="radio" name="entry[duration]" value="1"> 1
+    <input type="radio" name="entry[duration]" value="1.5">1.5
+    <input type="radio" name="entry[duration]" value="2"> 2<br />
+    <input type="radio" name="entry[duration]" value="2.5"> 2.5
+    <input type="radio" name="entry[duration]" value="3"> 3
+    <input type="radio" name="entry[duration]" value="3.5"> 3.5
+    <input type="radio" name="entry[duration]" value="4"> 4 <br />
+    Location: <input type='text' name="entry[location]" value="<%= hosting.location %>"><br />
+    Description: <textarea name="entry[description]"><%= hosting.description %></textarea>
+    <input type="submit" value="edit">
+  </form>
+
+  <form action="/hostings" method="POST">
+  	<input type="hidden" name="_method" value="DELETE">
+  	<input type="submit" value="delete">
+  </form>
+</div>
