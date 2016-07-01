@@ -107,9 +107,15 @@ input[type=submit]:hover{
   margin-left
 }
 
-/*.playdate-listing {
+.playdate-listing {
+  display: block;
+  clear: both;
+}
+
+.playdate-id {
   border-bottom: 1px dashed white;
-}*/
+  display: block;
+}
 
 .playdate-details{
   display: none;
@@ -158,6 +164,7 @@ input[type=submit]:hover{
     transition: margin-left .5s;
     padding: 20px;
     margin: 0 auto;
+    height:auto;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -216,4 +223,9 @@ span.email {
 .attending_list {
   color: #339933;
   font-size: 1.5em;
+}
+
+h4 {
+  color: #64CF31;
+  font-size: 1.2em;
 }

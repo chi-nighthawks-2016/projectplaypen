@@ -2,7 +2,7 @@
   <div id="error"><%= @error %></div>
 <% end %>
 
-<div>
+<div class="this-edit-form">
   <form action="/playdates/<%= playdate.id %>/edit" method="POST">
   	<input type="hidden" name="_method" value="PUT">
     Event: <input type="text" name="entry[title]" value="<%= playdate.title %>"><br />
