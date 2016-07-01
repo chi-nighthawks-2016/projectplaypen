@@ -52,7 +52,7 @@ a:hover {
   text-decoration: none;
   display: inline-block;
   /*background: none;*/
-  border: none;
+  border: solid 2px black;
 
 }
 
