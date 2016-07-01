@@ -1,6 +1,9 @@
 $(document).ready(function() {
+  $('#calendar').fullCalendar({
+        // put your options and callbacks here
+    })
 
-  $("a#playdate-title").on("click", function(e){
+  $("a[class='playdate-title']").on("click", function(e){
     e.preventDefault();
     var route = $(this).attr("href"); //what are you doing with the route??
     var $thisPlaydate = $(this).parent();
