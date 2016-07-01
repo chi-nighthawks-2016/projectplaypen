@@ -5,11 +5,8 @@ $(document).ready(function() {
   var y = date.getFullYear();
 
   var monthsEvents;
-  var currentProfile = $("span.profile").attr("profile");
-  $.getJSON( "/playdates", {profile: currentProfile}, function(jsonEvents) {
-    console.log(jsonEvents);
+  $.getJSON( "/playdates/json/all", function(jsonEvents) {
     monthsEvents = jsonEvents;
-    console.log(monthsEvents);
     $('#calendar').fullCalendar({
       header: {
         left: 'prev,next today',
@@ -21,9 +18,35 @@ $(document).ready(function() {
       selectHelper: true,
       weekMode: 'fixed',
 
-      events: monthsEvents
+      events: monthsEvents,
+
+      eventClick: function(calEvent, jsEvent, view) {
+        console.log(calEvent.id)
+        $.get('/playdates/' + calEvent.id, {id: calEvent.id}, function(playdateDetails){
+          $(".playdate-id").remove();
+          $("#calendar").after(playdateDetails);
+        })
+     }
     })
   });
+
+  // var currentProfile = $("span.profile").attr("profile");
+  // $.getJSON( "/playdates/profile", {profile: currentProfile}, function(jsonEvents) {
+  //   monthsEvents = jsonEvents;
+  //   $('#calendar').fullCalendar({
+  //     header: {
+  //       left: 'prev,next today',
+  //       center: 'title',
+  //       right: 'month,agendaWeek,agendaDay'
+  //     },
+  //     editable: true,
+  //     selectable: true,
+  //     selectHelper: true,
+  //     weekMode: 'fixed',
+  //
+  //     events: monthsEvents
+  //   })
+  // });
 
     $("a[class='playdate-title']").on("click", function(e){
       e.preventDefault();
