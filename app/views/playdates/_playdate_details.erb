@@ -8,6 +8,7 @@
     <li><%= child.parent.first_name %> is bringing <%= child.first_name %></li>
   <% end %>
   </ul>
+
   <form action="/playdates/<%= playdate.id %>/rsvp" method="post">
   	Who is attending?
   	<% current_user.children.each do |child| %>

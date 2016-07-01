@@ -8,21 +8,27 @@
     Event: <input type="text" name="entry[title]" value="<%= playdate.title %>"><br />
     Date: <input type="date" name="entry[date]"  value="<%= playdate.date %>" placeholder="yyyy-mm-dd"><br />
     Start Time: <input type="text" name="entry[time]" value="<%= format(playdate.time) %>" placeholder="00:00 to 23:59"><br />
-    Duration:
-    <input type="radio" name="entry[duration]" value="1"> 1
-    <input type="radio" name="entry[duration]" value="1.5">1.5
-    <input type="radio" name="entry[duration]" value="2"> 2<br />
-    <input type="radio" name="entry[duration]" value="2.5"> 2.5
-    <input type="radio" name="entry[duration]" value="3"> 3
-    <input type="radio" name="entry[duration]" value="3.5"> 3.5
-    <input type="radio" name="entry[duration]" value="4"> 4 <br />
+    Duration: <select name="entry[duration]" class="select-field">
+    <option value="1.5">1.5 Hours</option>
+    <option value="2">2 Hours</option>
+    <option value="2.5">2.5 Hours</option>
+    <option value="3">3 Hours</option>
+    <option value="4">4 Hours</option>
+    </select>
+    </div><br>
+  <!--   Duration:
+    <input type="radio" name="entry[duration]" value="1.5">1.5 Hours
+    <input type="radio" name="entry[duration]" value="2"> 2 Hours<br/>
+    <input type="radio" name="entry[duration]" value="2.5"> 2.5 Hours
+    <input type="radio" name="entry[duration]" value="3"> 3 Hours
+    <input type="radio" name="entry[duration]" value="4"> 4 <br /> -->
+
     Location: <input type='text' name="entry[location]" value="<%= playdate.location %>"><br />
     Description: <textarea name="entry[description]"><%= playdate.description %></textarea>
-    <input type="submit" value="edit">
+    <input type="submit" value="Update Playdate Info">
   </form>
-
   <form action="/playdates/<%= playdate.id %>" method="POST">
   	<input type="hidden" name="_method" value="DELETE">
-  	<input type="submit" value="delete">
+  	<input type="submit" value="Cancel Playdate">
   </form>
 </div>

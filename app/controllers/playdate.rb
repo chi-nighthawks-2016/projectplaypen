@@ -4,6 +4,7 @@ get '/playdates/new' do
 end
 
 post '/playdates' do
+  p params
   new_playdate = current_user.hostings.new(params[:entry])
   if new_playdate.save
     redirect "/playdates"
