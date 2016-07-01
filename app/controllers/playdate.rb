@@ -18,6 +18,31 @@ get '/playdates/:id' do
   erb :'playdates/_playdate_details', locals: {playdate: @playdate}, layout: false
 end
 
+get '/playdates/json/profile' do
+    content_type :json
+    @current_profile = User.find(params[:profile])
+    playdates = @current_profile.users_months_playdates
+    events = []
+    playdates.each do |playdate|
+      events << { :title => playdate.title, :start => playdate.date }
+    end
+    events.to_json
+end
+
+get '/playdates/json/all' do
+  content_type :json
+  playdates = Playdate.this_months_playdates
+  events = []
+  playdates.each do |playdate|
+    events << { :title => playdate.title, :start => playdate.date, :id => playdate.id}
+  end
+  events.to_json
+end
+
+get '/playdates' do
+  erb :'playdates/show'
+end
+
 put '/playdates/:id/edit' do
 	edit_playdate = Playdate.find(params[:id])
 	edit_playdate.assign_attributes(params[:entry])

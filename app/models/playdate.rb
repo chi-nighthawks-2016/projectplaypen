@@ -11,4 +11,8 @@ class Playdate < ActiveRecord::Base
     attendees
   end
 
+  def self.this_months_playdates
+    self.all.where('extract(month from date) = ?', Date.today.mon)
+  end
+
 end

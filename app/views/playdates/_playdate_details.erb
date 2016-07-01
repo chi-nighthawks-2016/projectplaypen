@@ -1,4 +1,5 @@
-<!-- <div class="playdate-id"> -->
+<div class="playdate-id">
+  <h5><%= playdate.title %></h5>
   <p><%= playdate.description %> hosted by <%= playdate.host.first_name %> | <%= playdate.duration %> hours</p>
   <p>Attendees:</p>
   <ul>
@@ -6,4 +7,4 @@
     <li><%= child.parent.first_name %> is bringing <%= child.first_name %></li>
   <% end %>
   </ul>
-<!-- </div> -->
+</div>

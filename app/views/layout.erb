@@ -11,7 +11,7 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.8.0/fullcalendar.min.css">
-  <link rel="stylesheet"  href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.8.0/fullcalendar.print.css">
+  <link rel="stylesheet" media="print" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.8.0/fullcalendar.print.css">
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -23,6 +23,9 @@
 </head>
 <body>
 <header>
+  <% if logged_in? %>
+  <span class= "profile" profile="<%= params[:id] %>"></span>
+  <% end %>
   <nav class='navbar'>
     <a class='left-button' href="/playdates/new">Host Playdate</a>
     <% if current_user %>

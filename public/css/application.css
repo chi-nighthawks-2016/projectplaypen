@@ -1,3 +1,16 @@
+.container {
+  width: 800px;
+  height: content;
+  border: solid 8px #FE86A4;
+  border-radius: 60px;
+  margin: 20px auto;
+  top: 100px;
+  /*position: relative;*/
+  padding: 20px;
+  text-align: center;
+  bottom: 20px;
+}
+
 body {
   top: 100px;
   position: relative;
@@ -9,8 +22,8 @@ header {
   height: 100px;
   width: 100%;
   display: block;
-  top: 0px;
   position: fixed;
+  top: 0px;
 }
 
 .button {
@@ -42,19 +55,6 @@ header {
   right: 0px;
   text-align: center;
   /*border: solid 1px black;*/
-}
-
-.container {
-  width: 500px;
-  height: content;
-  border: solid 8px #FE86A4;
-  border-radius: 60px;
-  margin: auto;
-  top: 100px;
-  position: relative;
-  padding: 20px;
-  text-align: center;
-  bottom: 20px;
 }
 
 .errors {
