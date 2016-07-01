@@ -12,9 +12,10 @@
 }
 
 body {
-  top: 100px;
-  position: relative;
-  background-color: #FFDBE6;
+  /*top: 100px;
+  position: relative;*/
+  background-image: url("images/backgroundpattern.png");
+  background-repeat: repeat;
 }
 
 header {
@@ -22,6 +23,8 @@ header {
   margin: 0 auto;
   font-family: 'Chewy', cursive;
   font-size: 4em;
+  color: #2CB6BF;
+  -webkit-text-stroke: 2px white;
 }
 
 .button {
