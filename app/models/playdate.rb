@@ -11,4 +11,16 @@ class Playdate < ActiveRecord::Base
     attendees
   end
 
+  def year
+    self.date.year
+  end
+
+  def month
+    self.date.mon
+  end
+
+  def day
+    self.date.day
+  end
+
 end

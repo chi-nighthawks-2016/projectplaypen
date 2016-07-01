@@ -17,3 +17,13 @@ get '/playdates/:id' do
   @playdate = Playdate.find(params[:id])
   erb :'playdates/_playdate_details', locals: {playdate: @playdate}, layout: false
 end
+
+get '/playdates' do
+    content_type :json
+    playdates = current_user.this_months_playdates
+    events = []
+    playdates.each do |playdate|
+      events << { :title => playdate.title, :start => playdate.date }
+    end
+    events.to_json
+end

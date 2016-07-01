@@ -34,4 +34,8 @@ class User < ActiveRecord::Base
     self.playdates.where("date < ?", Date.today)[0..4]
   end
 
+  def this_months_playdates
+    self.playdates.where('extract(month from date) = ?', Date.today.mon)
+  end
+
 end
