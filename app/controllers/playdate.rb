@@ -15,17 +15,17 @@ end
 
 get '/playdates/:id' do
   @playdate = Playdate.find(params[:id])
-  erb :'playdates/_playdate_details', locals: {playdate: @playdate}
+  erb :'playdates/_playdate_details', locals: {playdate: @playdate}, layout:false
 end
 
 get '/playdates' do
 	@playdates = Playdate.all
-	erb :'/playdates/playdates'
+	erb :'/playdates/show'
 end
 
 post '/playdates/:id/rsvp' do
 	@playdate = Playdate.find(params[:id])
-	@rsvp = Rsvp.new(child_id: params[:child_id], playdate_id: params[:id])
+	@rsvp = Rsvp.find_or_initialize_by(child_id: params[:child_id], playdate_id: params[:id])
 	if @rsvp.save
 		erb :'/playdates/_playdate_details', locals: {playdate: @playdate}
 	else
@@ -36,7 +36,10 @@ end
 
 delete '/playdates/:id/rsvp' do
 	@playdate = Playdate.find(params[:id])
-	@rsvp = Rsvp.find_by(child_id: params[:child_id], playdate_id: params[:id]).destroy
+	@rsvp = Rsvp.find_by(child_id: params[:child_id], playdate_id: params[:id])
+  if @rsvp
+    @rsvp.destory
+  end
 	erb:'/playdates/_playdate_details', locals: {playdate: @playdate}
 end
 

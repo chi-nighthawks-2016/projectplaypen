@@ -52,11 +52,6 @@ a:hover {
   text-decoration: none;
   display: inline-block;
   /*background: none;*/
-<<<<<<< HEAD
-  border: 2px solid #FE86A4;
-=======
-  border: solid 2px black;
->>>>>>> 64ef782ebd212b379cf674ef31d4d7eb7c48d93c
 
 }
 
@@ -196,4 +191,8 @@ input[type=text], textarea, input[type=password], input[type=date], input[type=e
 
 span.attendee-details{
   display: none;
+}
+
+li {
+  list-style-type:none;
 }
