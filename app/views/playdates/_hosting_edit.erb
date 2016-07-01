@@ -3,11 +3,11 @@
 <% end %>
 
 <div class="container">
-  <form action="/hostings" method="POST">
+  <form action="/playdates/<%= playdate.id %>/edit" method="POST">
   	<input type="hidden" name="_method" value="PUT">
-    Event: <input type="text" name="entry[title]" value="<%= hosting.title %>"><br />
-    Date: <input type="date" name="entry[date]"  value="<%= hosting.date %>" placeholder="yyyy-mm-dd"><br />
-    Start Time: <input type="text" name="entry[time]" value="<%= format(hosting.time) %>" placeholder="00:00 to 23:59"><br />
+    Event: <input type="text" name="entry[title]" value="<%= playdate.title %>"><br />
+    Date: <input type="date" name="entry[date]"  value="<%= playdate.date %>" placeholder="yyyy-mm-dd"><br />
+    Start Time: <input type="text" name="entry[time]" value="<%= format(playdate.time) %>" placeholder="00:00 to 23:59"><br />
     Duration:
     <input type="radio" name="entry[duration]" value="1"> 1
     <input type="radio" name="entry[duration]" value="1.5">1.5
@@ -16,12 +16,12 @@
     <input type="radio" name="entry[duration]" value="3"> 3
     <input type="radio" name="entry[duration]" value="3.5"> 3.5
     <input type="radio" name="entry[duration]" value="4"> 4 <br />
-    Location: <input type='text' name="entry[location]" value="<%= hosting.location %>"><br />
-    Description: <textarea name="entry[description]"><%= hosting.description %></textarea>
+    Location: <input type='text' name="entry[location]" value="<%= playdate.location %>"><br />
+    Description: <textarea name="entry[description]"><%= playdate.description %></textarea>
     <input type="submit" value="edit">
   </form>
 
-  <form action="/hostings" method="POST">
+  <form action="/playdates/<%= playdate.id %>" method="POST">
   	<input type="hidden" name="_method" value="DELETE">
   	<input type="submit" value="delete">
   </form>

@@ -1,5 +1,17 @@
 <h2><%= user.username %>'s Profile</h2>
 
+<h4>Hosting Playdates</h4>
+<div id="hosting-playdates">
+  <% user.hostings.each do |hosting| %>
+  <div class="playdate-listing">
+    <p class="playdate-title"><a href="/playdates/<%= playdate.id %>/edit" class="playdate-title"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
+    <div class="playdate-details">
+      <%= erb :'playdates/_playdate_edit', locals: {playdate: playdate}%>
+    </div>
+  </div>
+  <% end %>
+</div>
+
 <h4>Future Playdates (next five)</h4>
 <div id="future-rsvps">
   <% user.future_playdates.each do |playdate| %>
