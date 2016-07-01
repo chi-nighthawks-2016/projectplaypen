@@ -90,4 +90,17 @@ $(document).ready(function() {
     });
   });
 
+  $("main.container").on("submit", "form.rsvp_form", function(e){
+    e.preventDefault();
+    var title = $("h5").text();
+    var description = $("p.playdate-description").text();
+    var email = $("span.email").text();
+    emailjs.send("admin_projectplaypen_com","template_xFPVTDNY",
+      {to_name: "Vivien", message_html: title + ":<br /> " + description, from_name: "PlayPen", to_email: email});
+  });
+
+// email sending service
+(function(){
+      emailjs.init("user_0dYBKB7HZTCUD8ys9S3Is");
+   })();
 });

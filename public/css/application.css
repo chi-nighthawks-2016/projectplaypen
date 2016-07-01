@@ -197,3 +197,6 @@ li {
   list-style-type:none;
 }
 
+span.email {
+  display:none;
+}
