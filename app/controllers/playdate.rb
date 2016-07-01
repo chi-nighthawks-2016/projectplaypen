@@ -27,10 +27,10 @@ post '/playdates/:id/rsvp' do
 	@playdate = Playdate.find(params[:id])
 	@rsvp = Rsvp.find_or_initialize_by(child_id: params[:child_id], playdate_id: params[:id])
 	if @rsvp.save
-		erb :'/playdates/_playdate_details', locals: {playdate: @playdate}
+		erb :'/playdates/_playdate_details', locals: {playdate: @playdate}, layout:false
 	else
 		@error = @rsvp.errors.full_messages
-		erb :'/playdates/_playdate_details'
+		erb :'/playdates/_playdate_details', layout:false
 	end
 end
 
@@ -38,9 +38,9 @@ delete '/playdates/:id/rsvp' do
 	@playdate = Playdate.find(params[:id])
 	@rsvp = Rsvp.find_by(child_id: params[:child_id], playdate_id: params[:id])
   if @rsvp
-    @rsvp.destory
+    @rsvp.destroy
   end
-	erb:'/playdates/_playdate_details', locals: {playdate: @playdate}
+	erb:'/playdates/_playdate_details', locals: {playdate: @playdate}, layout:false
 end
 
 get '/playdates/json/profile' do
