@@ -47,6 +47,7 @@ $(document).ready(function() {
       weekMode: 'fixed',
 
       events: monthsEvents
+
     })
   });
 
