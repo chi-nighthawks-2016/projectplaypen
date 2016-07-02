@@ -96,12 +96,12 @@ $(document).ready(function() {
     var description = $("p.playdate-description").text();
     var email = $("span.email").attr("email");
     var name = $("span.email").attr("name");
-    emailjs.send("admin_projectplaypen_com","template_xFPVTDNY",
+    emailjs.send("gmail","template_pZe2bVwi",
       {to_name: name, message_html: title + ":<br /> " + description, from_name: "PlayPen", to_email: email});
   });
 
 // email sending service
 (function(){
-      emailjs.init("user_0dYBKB7HZTCUD8ys9S3Is");
+    emailjs.init("user_YT72rssd8AO8Swvhoo9Xh");
    })();
 });

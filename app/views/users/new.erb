@@ -9,7 +9,7 @@
 
   <% if logged_in? %>
     <% if @user.id == current_user.id %>
-    <form action='/users' method='post'>
+    <form action='/users/<%= @user.id  %>' method='post'>
       <input name="_method" type="hidden" value="put" />
       <p>Username: <input type='text' name='username' value="<%= @user.username %>"><p>
       <p>First Name: <input type='text' name='first_name' value="<%= @user.first_name %>" ></p>

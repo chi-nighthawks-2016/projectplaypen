@@ -35,7 +35,7 @@
 <div id="future-rsvps">
   <% user.future_playdates.each do |playdate| %>
   <div class="playdate-listing">
-    <p class="playdate-title"><a href="/playdates/<%= playdate.id %>" class="playdate-title"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
+      <p class="playdate-title"><a href="/playdates/<%= playdate.id %>/edit" class="playdate-title"><%= playdate.title %></a> on <%= playdate.date.strftime("%m/%d/%Y") %> at <a href="http://maps.google.com/?q=<%= playdate.location %>">  <%= playdate.location %></a></p>
     <div class="playdate-details">
       <%= erb :'playdates/_playdate_details', locals: {playdate: playdate}%>
     </div>
@@ -47,7 +47,7 @@
 <div id="past-rsvps">
   <% user.past_playdates.each do |playdate| %>
   <div class="playdate-listing">
-    <p class="playdate-title"><a href="/playdates/<%= playdate.id %>" class="playdate-title"><%= playdate.title %></a> | <%= playdate.date %> |  <%= playdate.location %></p>
+  <p class="playdate-title"><a href="/playdates/<%= playdate.id %>/edit" class="playdate-title"><%= playdate.title %></a> on <%= playdate.date.strftime("%m/%d/%Y") %> at <a href="http://maps.google.com/?q=<%= playdate.location %>">  <%= playdate.location %></a></p>
     <div class="playdate-details">
       <%= erb :'playdates/_playdate_details', locals: {playdate: playdate}%>
     </div>
